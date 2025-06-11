@@ -51,11 +51,7 @@ class MainActivity : AppCompatActivity() {
         }
 
         if (allPermissionsGranted) {
-            if (isHost) {
-                enableHotspot(name)
-            } else {
-                joinHotspot(name)
-            }
+            startGroupChat(name, isHost)
         } else {
             ActivityCompat.requestPermissions(this, requiredPermissions, 100)
         }
@@ -70,28 +66,11 @@ class MainActivity : AppCompatActivity() {
         if (requestCode == 100) {
             val name = binding.nameEditText.text.toString().trim()
             if (grantResults.all { it == PackageManager.PERMISSION_GRANTED } && name.isNotEmpty()) {
-                if (intent.getBooleanExtra("IS_HOST", false)) {
-                    enableHotspot(name)
-                } else {
-                    joinHotspot(name)
-                }
+                startGroupChat(name, intent.getBooleanExtra("IS_HOST", false))
             } else {
                 binding.nameInputLayout.error = "Required permissions denied"
             }
         }
-    }
-
-    private fun enableHotspot(name: String) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            startActivity(Intent(Settings.ACTION_WIFI_SETTINGS))
-        } else {
-            startActivity(Intent(Settings.ACTION_WIRELESS_SETTINGS))
-        }
-        startGroupChat(name, true)
-    }
-
-    private fun joinHotspot(name: String) {
-        startGroupChat(name, false)
     }
 
     private fun startGroupChat(name: String, isHost: Boolean) {

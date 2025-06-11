@@ -42,6 +42,17 @@ android {
 
 
 dependencies {
+
+    // Socket.IO
+    implementation("io.socket:socket.io-client:2.0.0") {
+        exclude(group = "org.json", module = "json")
+    }
+
+    // JSON
+    implementation("org.json:json:20210307")
+    implementation("io.socket:engine.io-server:6.0.0")
+    implementation("io.socket:socket.io-server:4.0.0")
+
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
