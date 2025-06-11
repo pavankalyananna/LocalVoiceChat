@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">LocalVoiceChat</string>
+    <string name="enter_name_hint">Enter your display name</string>
+    <string name="join_button">Join Group Chat</string>
+    <string name="participants_title">Participants (%d)</string>
+    <string name="mic_unmute">Unmute</string>
+    <string name="mic_mute">Mute</string>
+    <string name="permission_rationale">Microphone permission is required for voice chat</string>
+    <string name="permission_denied">Microphone permission denied. Some features may not work.</string>
+    <string name="host_indicator">Host</string>
+    <string name="speaking_indicator">Speaking…</string>
+    <string name="create_hotspot">Create Hotspot</string>
+    <string name="join_hotspot">Join Hotspot</string>
+    <string name="hotspot_name">LocalVoiceChat</string>
+    <string name="hotspot_password">12345678</string>
+    <string name="connecting">Connecting…</string>
+</resources>
